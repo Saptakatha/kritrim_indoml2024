@@ -12,4 +12,4 @@
 ### Method - 3: LLM Instruction tuned
 
 
-## Resource used: 2 A6000 GPUs
+#### Resource used: 2 A6000 GPUs
