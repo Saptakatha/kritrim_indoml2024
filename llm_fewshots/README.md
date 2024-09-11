@@ -7,7 +7,13 @@ pip install -r requirements.txt
 ```
 
 ### Start LLM server  <a name="llm-server-setup"></a>
-Run the following script to test the model.
+The llama-3-8b-instruct-awq model is hosted as a server using the following command.
 ```python 
 python llm_server.py
+```
+
+### Few-shot inferencing <a name=""></a>
+Run the following script to perform few-shot inference on test samples using the llm model.
+```python
+python fewshot_infer.py
 ```
