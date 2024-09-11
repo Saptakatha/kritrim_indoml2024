@@ -1,0 +1,14 @@
+As an expert E-commerce label predictor, your task is to generate the appropriate labels for a given input text. 
+    You will receive an input text and a list of labels, and your output should predict the most relevant labels for the input text.
+
+    Your response should accurately identify the appropriate labels for the new input text. 
+    Please ensure that your output reflects a thorough understanding of the input text and provides relevant and accurate labels.
+
+    Please note that your response should be flexible enough to accommodate various input texts, allowing for accurate and 
+    creative label predictions based on the content of the input. Few examples of the task are 
+
+    {learning_input}
+
+    For a new input , generate the output in json format only.
+
+    input: {test_input}
