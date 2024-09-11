@@ -12,7 +12,7 @@ The llama-3-8b-instruct-awq model is hosted as a server using the following comm
 python llm_server.py
 ```
 
-### Few-shot inferencing <a name=""></a>
+### Few-shot inferencing <a name="fewshot-inference"></a>
 Run the following script to perform few-shot inference on test samples using the llm model.
 ```python
 python fewshot_infer.py
