@@ -56,6 +56,19 @@ tokenized_datasets = dataset_dict.map(preprocess_function, batched=True)
 tokenized_datasets.save_to_disk('./flan_t5-small-tokenized_dataset')
 
 
+# Ensure the logging directory exists
+os.makedirs('./logs_flan_t5-small', exist_ok=True)
+
+# Set up logging configuration
+logging.basicConfig(
+    filename='./logs_flan_t5-small/training.log',
+    filemode='a',  # Append mode
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    level=logging.INFO
+)
+
+
+
 training_args = TrainingArguments(
     output_dir='./results_flan_t5-small',
     evaluation_strategy='epoch',
@@ -71,13 +84,19 @@ training_args = TrainingArguments(
 )
 
 
+# Log the training arguments
+logging.info(f"Training Arguments: {training_args}")
+
+# Custom callback to log training metrics
 class CustomCallback(TrainerCallback):
     def on_log(self, args, state, control, logs=None, **kwargs):
         if logs is not None:
-            print(f"Step: {state.global_step}")
+            log_message = f"Step: {state.global_step}\n"
             for key, value in logs.items():
-                print(f"{key}: {value}")
-            print("\n")
+                log_message += f"{key}: {value}\n"
+            log_message += "\n"
+            print(log_message)
+            logging.info(log_message)
             
             
 trainer = Trainer(
@@ -93,9 +112,7 @@ trainer.train()
 
 val_results = trainer.evaluate(eval_dataset=tokenized_datasets['validation'])
 print(f"Validation Loss: {val_results['eval_loss']}")
-
-# test_results = trainer.evaluate(eval_dataset=tokenized_datasets['test'])
-# print(f"Test Loss: {test_results['eval_loss']}")
+logging.info(f"Validation Loss: {val_results['eval_loss']}")
 
 
 model.save_pretrained('./finetuned_flan_t5-small')
