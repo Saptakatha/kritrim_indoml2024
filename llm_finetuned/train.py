@@ -2,6 +2,7 @@ import pandas as pd
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM, Trainer, TrainingArguments, TrainerCallback
 from datasets import Dataset, DatasetDict
 import numpy as np
+import logging, os
 
 
 def read_jsonl(file_path, nrows=None):
@@ -67,6 +68,7 @@ logging.basicConfig(
     level=logging.INFO
 )
 
+logging.info(f"Number of training examples: {len(dataset_dict['train'])} \n Number of validation examples: {len(dataset_dict['validation'])}")
 
 
 training_args = TrainingArguments(
