@@ -11,7 +11,7 @@ pip install -e .[bitsandbytes,liger-kernel]
 ```
 Then run the following command
 ```
-llamafactory-cli train train_llama3_20k
+llamafactory-cli train train_llama3_20k.json
 ```
 ## vLLM based Inferencing
 Create a different conda followed by its activation
