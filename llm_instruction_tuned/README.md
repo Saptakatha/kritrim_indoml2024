@@ -9,3 +9,7 @@ pip install torch==2.3.1 torchvision==0.18.1 torchaudio==2.3.1 --index-url https
 pip uninstall -y jax
 pip install -e .[bitsandbytes,liger-kernel]
 ```
+Then run the following command
+```
+llamafactory-cli train train_llama3_20k
+```
