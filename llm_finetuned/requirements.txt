@@ -1,3 +1,5 @@
-transformers
+transformers==4.44.2
 pandas
-datasets
+datasets==2.21.0
+torch==2.4.0
+torchvision==0.19.0
